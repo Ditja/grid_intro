@@ -1,0 +1,154 @@
+/* --- standarder --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --------------- */
+.container {
+    max-width: 960px;
+    margin: 4em auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-auto-flow: column; 
+    /* columns ligger vandret i stedet for lodret */
+    gap: 5px;
+}
+
+/* øvelse 2 */
+.step2 {
+    grid-template-columns: repeat(6, 1fr);
+    /* 1 row med 6 columns af 1 faction (1/6 hver) */
+}
+
+/* øvelse 3 */
+.step3 {
+    grid-template: repeat(2, auto) / repeat(4, 1fr);
+    /* rows først og så columns */
+}
+
+.step3 .a {
+    grid-column: 1/3;
+    /* fylder fra column 1 til 3 */
+}
+
+.step3 .b {
+    grid-column: 3/-1;
+    /* fylder fra column 3 til sidst (-1) */
+}
+
+/* øvelse 4 */
+.step4 {
+    grid-template: repeat(3, auto) / repeat(4, 1fr);
+    grid-auto-flow: row;
+}
+
+.step4 .a {
+    grid-column: 1/-1;
+    /* fylder fra column 1 til column-line 5 */
+}
+
+.step4 .f {
+    grid-column: span 4;
+    /* fylder fra column-line 1 til column-line 5 */
+}
+
+/* øvelse 5 */
+.container.step5 {
+    border: none;
+    margin: 2em auto;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1em;
+    grid-template: repeat(2, auto) / repeat(5, 1fr);
+    grid-auto-flow: row;
+}
+
+.container.step5 .big {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+}
+
+/* øvelse 6 */
+.step6 {
+    grid-template: 1fr/1fr;
+    /* 1 hel række og 1 hel kolonne */
+}
+
+.step6 .big,
+.step6 h2 {
+    grid-area: 1/1/-1/-1;
+}
+
+.step6 h2 {
+    order: 1;
+    max-width: 33.33%;
+    padding: 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    place-self: center;
+}
+
+/* øvelse 7 */
+.step7 {
+    grid-template: repeat(2, auto) / repeat(3, 1fr);
+    /* 2 rows med autohøjde og 3 columns af 1 fraction (3*1/3 i alt) */
+    gap: unset; /* intet gap */
+}
+
+.step7 .a,
+.step7 .b,
+.step7 .c {
+    grid-row: 1;
+    /* div a, b og c ligger i row 1 */
+}
+
+.step7 .d,
+.step7 .e,
+.step7 .f {
+    grid-row: 2;
+    /* div d, e og f ligger i row 2 */
+}
+
+.step7 .a,
+.step7 .d {
+    grid-column: 1/2;
+    /* div a og d ligger fra column-line 1 til 2 */
+}
+
+.step7 .b,
+.step7 .e {
+    grid-column: 2/3;
+    /* div b og e ligger fra column-line 2 til 3 */
+}
+
+.step7 .c,
+.step7 .f {
+    grid-column: 3/-1;
+    /* div c og f ligger fra column-line 3 til column-line -1
+    (eller 4(sidste column-line)) */
+}
+
+.step7 h2 {
+    grid-area: 1/1/-1/-1;
+    order: 1;
+    max-width: 50%;
+    padding: 3%; 
+    /* kun for at give h2'erens kasse afstand rundt om teksten */
+    background-color: rgba(0, 0, 0, 0.7); /* sort halvgennemsigtig */
+    color: #fff;
+    place-self: center; 
+    /* placeret i center fra både top, bund, højre og venstre 
+    og fylder tekstens bredde */
+}
